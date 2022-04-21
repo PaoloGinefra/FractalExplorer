@@ -10,11 +10,12 @@ class Complex{
 	}
 
 	squared(){
-		this.a = sq(this.a) - sq(this.b)
+		let a = this.a * this.a - this.b * this.b
         this.b = 2 * this.a * this.b;
+		this.a = a;
 	}
 
 	len(){
-		return sq(this.a) + sq(this.b);
+		return this.a * this.a + this.b * this.b;
 	}
 }

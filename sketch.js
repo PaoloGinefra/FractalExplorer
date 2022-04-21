@@ -1,12 +1,12 @@
-let thresh = 16
-let iter = 50
+let thresh = 4;
+let iter = 10;
 
 let rangeX = 2;
 
 var width;
 var height;
 
-var Center = new Complex(0.285, 0);
+let c = new Complex(0, -0.8);
 
 function setup() {
 	W = windowWidth;
@@ -14,11 +14,11 @@ function setup() {
 
 	createCanvas(W, H);
 
-	background(0)
+	background(0);
 
 	let rangeY = rangeX * H / W;
 
-	let col = color(255, 187, 0)
+	let col = color(255, 187, 0);
 
 	let i = 0;
 
@@ -43,11 +43,9 @@ function draw() {
 }
 
 function isInJulia(x, y){
-	let z = new Complex(0, 0);
-	let c = new Complex(x, y)
+	let z = new Complex(x, y)
 
 	let i
-
 	for(i = 0; i < iter && z.len() < thresh; i++){
 		z.squared();
 		z.add(c);
