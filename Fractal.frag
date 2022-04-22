@@ -1,17 +1,16 @@
 precision mediump float;
 varying vec2 vTexCoord;
 
-#define iter 10
+#define iter 30
 #define thresh 4.0
 
 vec2 c;
-
-uniform float alpha;
-float A = 0.8;
-
 float range = 2.0;
 
+uniform float A;
+uniform float alpha;
 uniform float ratio;
+uniform float zoom;
 
 
 float Julia(vec2 pos){
@@ -39,9 +38,9 @@ void main()
     vec2 uv = vTexCoord;
     
     uv -= vec2(.5, .5);
-    uv *= 3.0;
+    uv *= zoom;
 
-    uv.y *= ratio;
+    uv.x /= ratio;
     
     //alpha = t;
     

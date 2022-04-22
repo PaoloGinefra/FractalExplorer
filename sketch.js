@@ -1,5 +1,7 @@
 let Shader;
 let alpha = 0.5;
+let zoom = 3;
+let A = 0.8;
 
 function preload(){
 	Shader = loadShader('basic.vert', 'Fractal.frag');
@@ -15,6 +17,8 @@ function setup() {
 function draw() {
 	Shader.setUniform('ratio', windowHeight / windowWidth);
 	Shader.setUniform('alpha', alpha);
+	Shader.setUniform('zoom', zoom);
+	Shader.setUniform('A', A);
 
 	shader(Shader);
 	rect(0, 0, width, height);
